@@ -12,7 +12,7 @@ const dayField = document.querySelector('#day-field');
 
 const calendar = new Proxy(getCalendar(), {
     set(target, property, value) {
-        target[property] = setCookie(property, value, 1);
+        target[property] = setCookie(property, value, 1, (x) => !isNaN(Number(x)) && Number(x) >= 1 && Number(x) <= 10000);
         updateCalendar();
         return true;
     }
