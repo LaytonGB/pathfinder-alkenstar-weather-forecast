@@ -1,0 +1,104 @@
+body {
+    font: normal 14px/18px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#calendar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 20px;
+    margin-bottom: 100px;
+
+    font-size: large;
+
+    &>div {
+        width: 150px;
+        height: 120px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        padding: 10px;
+
+        &>ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-size: small;
+            font-weight: normal;
+        }
+    }
+}
+
+.current {
+    background-color: rgb(162, 255, 159);
+}
+
+.past {
+    background-color: rgb(165, 165, 165);
+    color: rgb(88, 88, 88);
+}
+
+#controls {
+    position: fixed;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &>*>* {
+        font-size: large;
+        padding: 10px;
+    }
+
+    & button {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+    }
+}
+
+#settings {
+    position: fixed;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+    text-align: right;
+
+    &>button {
+        position: relative;
+        top: 0;
+        right: 0;
+        font-size: large;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    & #settings-menu {
+        position: relative;
+        top: 0;
+        right: 0;
+        font-size: large;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+    }
+}

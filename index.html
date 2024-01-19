@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Alkenstar Weather</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="calendar"></div>
+
+    <div id="controls">
+      <div class="left">
+        <button id="prev">Day -1</button>
+      </div>
+      <div class="center">
+        <label for="day-field">Day</label>
+        <input type="number" name="day" id="day-field" />
+      </div>
+      <div class="right">
+        <button id="next">Day +1</button>
+      </div>
+    </div>
+
+    <div id="settings">
+      <button id="toggle-settings">⚙</button>
+      <div id="settings-menu" class="hidden">
+        <label for="set-random-seed">Set Seed</label>
+        <input type="number" name="seed" id="set-random-seed" />
+
+        <input type="submit" id="submit-random-seed" value="Submit" />
+      </div>
+    </div>
+
+    <script src="cookie.js" defer></script>
+    <script src="rng.js" defer></script>
+    <script src="calendar.js" defer></script>
+    <script src="weatherConditions.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
