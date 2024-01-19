@@ -12,17 +12,17 @@ const dayField = document.querySelector('#day-field');
 
 const calendar = new Proxy(getCalendar(), {
     set(target, property, value) {
-        target[property] = setCookie(property, value, (x) => !isNaN(Number(x)) && Number(x) >= 1 && Number(x) < 10000);
+        target[property] = cookie.set(property, value, (x) => !isNaN(Number(x)) && Number(x) >= 1 && Number(x) < 10000);
         updateCalendar();
         return true;
     }
 });
 
 const properties = new Proxy({
-    seed: Number(getCookie('seed')) || 69420,
+    seed: cookie.get('seed') || 69420,
 }, {
     set(target, property, value) {
-        target[property] = setCookie(property, value);
+        target[property] = cookie.set(property, value);
         updateCalendar();
         updatePropertiesForms();
         return true;

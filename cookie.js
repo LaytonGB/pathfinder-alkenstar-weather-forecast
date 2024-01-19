@@ -1,15 +1,28 @@
-function getCookie(name) {
-    return document.cookie.match(new RegExp(`(^|;) ?${name}=([^;]*)(;|$)`))?.[2];
-}
+const cookie = {
+    values: {},
 
-function setCookie(name, value, validCheck = (x) => !isNaN(Number(x)), expiry = null) {
-    if (expiry === null) {
-        expiry = new Date();
-        expiry.setFullYear(expiry.getFullYear() + 1);
+    init() {
+        document.cookie.split(/; */g).forEach((x) => {
+            const [name, value] = x.split(/ *= */g);
+            this.values[name] = Number(value);
+        });
+    },
+
+    get(name) {
+        return this.values[name];
+    },
+
+    set(name, value, validCheck = (x) => !isNaN(Number(x)), expiry = null) {
+        if (!validCheck(value)) {
+            return this.get(name);
+        }
+        if (expiry === null) {
+            expiry = new Date();
+            expiry.setFullYear(expiry.getFullYear() + 1);
+        }
+        document.cookie = `${name}=${value};expires=${expiry.toUTCString()}`;
+        this.values[name] = value;
+        return value;
     }
-    if (!validCheck(value)) {
-        return getCookie(name);
-    }
-    document.cookie = `${name}=${value};expires=${expiry.toUTCString()}`;
-    return value;
-}
+};
+cookie.init();

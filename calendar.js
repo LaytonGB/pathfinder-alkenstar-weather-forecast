@@ -1,5 +1,5 @@
 function getCalendar() {
-    let dayCookie = getCookie("day");
+    let dayCookie = cookie.get("day") || 1;
     const calendar = {
         day: Number(dayCookie) || 1,
         prev() {
