@@ -2,7 +2,7 @@ function getCookie(name) {
     return document.cookie.match(new RegExp(`(^|;) ?${name}=([^;]*)(;|$)`))?.[2];
 }
 
-function setCookie(name, value, defaultValue = 1, validCheck = (x) => !isNaN(Number(x)) && Number(x) >= 0, expiry = null) {
+function setCookie(name, value, defaultValue = 1, validCheck = (x) => !isNaN(Number(x)) && Number(x) >= 1, expiry = null) {
     if (expiry === null) {
         expiry = new Date();
         expiry.setFullYear(expiry.getFullYear() + 1);
